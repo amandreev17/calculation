@@ -1,0 +1,3 @@
+/Users/olesaandreeva/Desktop/calculation/build/CMakeFiles/calculation.dir
+/Users/olesaandreeva/Desktop/calculation/build/CMakeFiles/edit_cache.dir
+/Users/olesaandreeva/Desktop/calculation/build/CMakeFiles/rebuild_cache.dir

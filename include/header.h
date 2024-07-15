@@ -33,6 +33,7 @@ char addType(string& f) { // определяем, как в стеке буду
         f = "";
         return 'e';
     }
+    return 'E';
 }
 
 int getRang(char Ch) // Приоритет операции
@@ -61,6 +62,7 @@ double Func(list<Leksema>& q, stack<Leksema>& s) {  // вычисляем зна
     if (q.front().type == 'g') {
         return 1.0/(tan(s.top().val));
     }
+    return -1.0;
 }
 
 bool CheckStaples(string f) {
