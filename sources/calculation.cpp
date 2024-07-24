@@ -54,10 +54,10 @@ int main()
                 // Отправляем в очередь все операции с большим или равным приоритетом
                 myqueue.push_back(mystack.top());
                 mystack.pop(); // Удаляем операцию из стека
-
+                
             }
             fl = 1;
-
+            
         }
         if ((isalnum((unsigned char)Ch) && Ch != 'x') || (isalnum((unsigned char)Ch) && Ch == 'x' && f != "")) {
             f += Ch;
@@ -92,7 +92,7 @@ int main()
     if (f != "") {
         cerr << "\nError!!!";
         return 0;
-        }
+    }
     // 2.    Если достигнут конец входной последовательности (очереди), вытолкнуть все из стека в выходную последовательность (очередь) и завершить работу.
     while (mystack.size() > 0)
     {
@@ -111,13 +111,13 @@ int main()
             myqueue.pop_front(); // Удалить из очереди
         }
         else if (myqueue.front().type == 'c' || myqueue.front().type == 's' || myqueue.front().type == 't'
-        || myqueue.front().type == 'g' || myqueue.front().type == 'e') {
-                item.type = 0;
-                item.val = Func(myqueue, mystack);
-                myqueue.pop_front();
-                mystack.pop();
-                mystack.push(item);
-            }
+                 || myqueue.front().type == 'g' || myqueue.front().type == 'e') {
+            item.type = 0;
+            item.val = Func(myqueue, mystack);
+            myqueue.pop_front();
+            mystack.pop();
+            mystack.push(item);
+        }
         else // Операнд знак операции
         {
             // Если операция бинарная, то в стеке должно быть 2 числа, если операция унарная, то в стеке 1 число
@@ -149,19 +149,19 @@ int main()
             mystack.pop(); // Удалить операнд из стека
             switch (myqueue.front().type) // Выполняем операцию
             {
-            case '+': Rez = x + y; break;
-            case '-': Rez = x - y; break;
-            case '*': Rez = x * y; break;
-            case '/': Rez = x / y; break;
-            default:
-                cerr << "\nError!!!";
-                return 0;
+                case '+': Rez = x + y; break;
+                case '-': Rez = x - y; break;
+                case '*': Rez = x * y; break;
+                case '/': Rez = x / y; break;
+                default:
+                    cerr << "\nError!!!";
+                    return 0;
             }
             myqueue.pop_front(); // Извлечь операнд из очереди  (знак операции, которую выполнили)
             item.type = 0;
             item.val = Rez; // Результат в новую лексему
             mystack.push(item); // Результат в стек
-
+            
         }
     }
     // В стеке останется единственное число — значение выражения
